@@ -8,7 +8,8 @@ import java.util.Scanner;
 public class VentasVideojuegos {
 	/**
 	 * Pre:
-	 * Post:
+	 * Post: Metod que devuelve una array de Strings, donde almacena las consolas sin repetirlas
+	 * leyendo el documeto 
 	 */
 	public static ArrayList<String> informacionVideojuegos(String ruta, ArrayList<String> lista) {
 		int cont = 0;
@@ -32,7 +33,7 @@ public class VentasVideojuegos {
 							ocu++;
 						}
 					}
-					if(ocu == 0) {
+					if(ocu == 0 && comp.length() < 4) {
 						lista.add(comp);
 					} else {
 						ocu = 0;
@@ -49,7 +50,8 @@ public class VentasVideojuegos {
 	}
 	/**
 	 * Pre:
-	 * Post:
+	 * Post: metodo main que muestra por pantalla el contenido del array despues de llamar
+	 * al metodo que lo rellena
 	 */
 	public static void main(String[] args) {
 		ArrayList<String> lista = new ArrayList<String>();

@@ -7,11 +7,28 @@ public class Jugador {
 	private int calidadPorteria;
 	private int vidas;
 	
+	/**
+	 * Pre:
+	 * Post: Metodo constructor para jugadores convecionales
+	 */
 	public Jugador(int dorsal) {
 		genNombre();
 		this.dorsal = dorsal;
-		this.potenciaDisparo = avilidadDisparo();
-		this.calidadPorteria = avilidadPorteria();
+		this.potenciaDisparo = habilidadDisparo();
+		this.calidadPorteria = habilidadPorteria();
+		this.vidas = 2;
+		
+	}
+	
+	/**
+	 * Pre:
+	 * Post: Metodo constructor para mejor Jugador
+	 */
+	public Jugador() {
+		this.nombre = "Cristiano Ronaldo";
+		this.dorsal = 777;
+		this.potenciaDisparo = 1000;
+		this.calidadPorteria = 1000;
 		this.vidas = 2;
 		
 	}
@@ -39,7 +56,17 @@ public class Jugador {
 	public void setCalidadPorteria(int calidadPortera) {
 		this.calidadPorteria = calidadPortera;
 	}
+	public int getVidas() {
+		return vidas;
+	}
+	public void setVidas(int vidas) {
+		this.vidas = vidas;
+	}
 	
+	/**
+	 * Pre:
+	 * Post: Genera aleatoriamente los nombres
+	 */
 	public void genNombre() {
 		String[][] nombres = new String[][] {
 				{ "Oscar", "Cristian", "Luis", "Fede", "Carlos", "Jose", "Martin", "Xavi", "Andres", "Karim", "Miguel",
@@ -52,21 +79,35 @@ public class Jugador {
 
 	}
 	
-	public int avilidadDisparo() {
+	/**
+	 * Pre:
+	 * Post: Otorga aleatoriamente la habilidad de disparo
+	 */
+	public int habilidadDisparo() {
 		int disparo = (int) (Math.floor(Math.random() * (100)));
 		return disparo;
 		
 	}
 	
-	public int avilidadPorteria() {
+	/**
+	 * Pre:
+	 * Post: Otorga aleatoriamente la habilidad en la porteria
+	 */
+	public int habilidadPorteria() {
 		int portero = (int) (Math.floor(Math.random() * (100)));
 		return portero;
 		
 	}
-	public int getVidas() {
-		return vidas;
-	}
-	public void setVidas(int vidas) {
-		this.vidas = vidas;
+	
+	/**
+	 * Pre:
+	 * Post: Metodo que devuelve en un String las variables de los Jugadores
+	 */
+	public String toString() {
+		String datos = "Nombre: " + this.nombre + " Dorsal: " + this.dorsal + " Disparo: " 
+						+ this.calidadPorteria + " Porteria: " + this.calidadPorteria + " Vidas: "
+						+ this.vidas;
+		return datos;
+		
 	}
 }

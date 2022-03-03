@@ -7,7 +7,8 @@ import java.util.Scanner;
 public class TextoExamen {
 	/**
 	 * Pre:
-	 * Post:
+	 * Post: Este metodo devuelve un entero haciendo referencia al
+	 * numero de palabras mayores que el entero recibido en la llamada
 	 */
 	public static int palabrasMasLargasQue(int longitud, String ruta) {
 		int cont = 0;
@@ -32,7 +33,7 @@ public class TextoExamen {
 	
 	/**
 	 * Pre:
-	 * Post:
+	 * Post: Este metodo main muestra el resultado despues de llamar al metodo
 	 */
 	public static void main(String[] args) {
 		Scanner capt = new Scanner (System.in);
