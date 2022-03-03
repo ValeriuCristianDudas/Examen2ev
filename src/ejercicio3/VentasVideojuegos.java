@@ -28,7 +28,7 @@ public class VentasVideojuegos {
 					lista.add(comp);
 				} else if (cont > 1) {
 					for (int i = 0; i < lista.size(); i++) {
-						if(lista.get(i).equals(comp)) {
+						if(lista.get(i).contains(comp)) {
 							ocu++;
 						}
 					}

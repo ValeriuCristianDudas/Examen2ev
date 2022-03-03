@@ -5,10 +5,14 @@ public class Jugador {
 	private int dorsal;
 	private int potenciaDisparo;
 	private int calidadPorteria;
+	private int vidas;
 	
 	public Jugador(int dorsal) {
 		genNombre();
 		this.dorsal = dorsal;
+		this.potenciaDisparo = avilidadDisparo();
+		this.calidadPorteria = avilidadPorteria();
+		this.vidas = 2;
 		
 	}
 	public String getNombre() {
@@ -58,5 +62,11 @@ public class Jugador {
 		int portero = (int) (Math.floor(Math.random() * (100)));
 		return portero;
 		
+	}
+	public int getVidas() {
+		return vidas;
+	}
+	public void setVidas(int vidas) {
+		this.vidas = vidas;
 	}
 }
