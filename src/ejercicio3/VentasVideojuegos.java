@@ -6,20 +6,45 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class VentasVideojuegos {
-	public static ArrayList<String> informacionVideojuegos(String ruta) {
-		
+	/**
+	 * Pre:
+	 * Post:
+	 */
+	public static ArrayList<String> informacionVideojuegos(String ruta, ArrayList<String> lista) {
+		int cont = 0;
+		int ocu = 0;
 		try {
 			File f = new File(ruta);
 			Scanner l = new Scanner(f);
 			while(l.hasNextLine()) {
 				String li = l.nextLine();
 				String[] linea = li.split(",");
+				String comp = linea[2];
+//				System.out.println(comp.substring(comp.length() - 1, comp.length()));
+				if(comp.substring(comp.length() - 1, comp.length()).equals("\"")) {
+					comp = linea[3];
+				}
+				if(cont == 1) {
+					lista.add(comp);
+				} else if (cont > 1) {
+					for (int i = 0; i < lista.size(); i++) {
+						if(lista.get(i).equals(comp)) {
+							ocu++;
+						}
+					}
+					if(ocu == 0) {
+						lista.add(comp);
+					} else {
+						ocu = 0;
+					}
+				}
+				cont++;
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("ERROR");
 			e.printStackTrace();
 		}
-		return null;
+		return lista;
 		
 	}
 	/**
@@ -27,6 +52,13 @@ public class VentasVideojuegos {
 	 * Post:
 	 */
 	public static void main(String[] args) {
+		ArrayList<String> lista = new ArrayList<String>();
 		String ruta = "./ventasVideojuegos.csv";
+		lista = informacionVideojuegos(ruta, lista);
+		System.out.println("Estas son las plataformas disponibles");
+		for (int i = 0; i < lista.size(); i++) {
+			System.out.println(lista.get(i));
+		}
+		
 	}
 }

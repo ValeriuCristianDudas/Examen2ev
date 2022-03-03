@@ -22,6 +22,7 @@ public class TextoExamen {
 					cont++;
 				}
 			}
+			l.close();
 		} catch (FileNotFoundException e) {
 			System.out.println("ERROR");
 			e.printStackTrace();
